@@ -1,0 +1,29 @@
+{
+  "name": "crawler-instagram",
+  "version": "1.0.0",
+  "description": "Crawler de mensagens do instagram",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullStackSeverino/Crawler-Instagram.git"
+  },
+  "author": "William de Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fullStackSeverino/Crawler-Instagram/issues"
+  },
+  "homepage": "https://github.com/fullStackSeverino/Crawler-Instagram#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
