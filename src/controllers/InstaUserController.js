@@ -35,21 +35,18 @@ module.exports = {
     UserInfo.id = json.user.id;
     UserInfo.username = json.user.username;
 
-    const _userPosts = json.user.edge_owner_to_timeline_media;
-
-    for (i = 0; i <= _userPosts.count; i++) {
-      const _currentPost = _userPosts.edges[i];
-      console.log(_currentPost);
- 
-      // const _postToBeAdd = {
-      //   post_id: _currentPost.id,
-      //   post_shortcode: _currentPost.shortcode,
-      //   post_url: `https://www.instagram.com/p/${_currentPost.shortcode}`,
-      //   post_img: _currentPost.display_url,
-      //   post_type: _currentPost.__typename,
-      // };
-      // UserPosts.push(_postToBeAdd);
-    }
+    const _userPosts = json.user.edge_owner_to_timeline_media.edges;
+    _userPosts.forEach(element => {
+      const _currentPost = element.node;
+      const _postToBeAdd = {
+        post_id: _currentPost.id,
+        post_shortcode: _currentPost.shortcode,
+        post_url: `https://www.instagram.com/p/${_currentPost.shortcode}`,
+        post_img: _currentPost.display_url,
+        post_type: _currentPost.__typename,
+      };
+      UserPosts.push(_postToBeAdd);
+    });
     return res.status(200).json({ user: UserInfo, posts: UserPosts });
   },
 };
